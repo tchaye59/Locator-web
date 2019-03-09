@@ -54,8 +54,8 @@
                     </p:splitButton>
 
                     <p:separator/>
-                    <p:dataTable widgetVar="list" var="item" value="#{powerCenterBean.all}" rows="50"
-                                 rowKey="#{item.id}" lazy="true" paginator="true"
+                    <p:dataTable widgetVar="list" var="item" value="#{powerCenterBean.all}" rows="10"
+                                 rowKey="#{item.id}"   paginator="true"
                                  paginatorPosition="bottom" selection="#{powerCenterBean.selecteds}"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {JumpToPageDropdown}"
                                  currentPageReportTemplate="[ {startRecord} to {endRecord} of {totalRecords} ]"
@@ -76,18 +76,10 @@
 
                         <p:column headerText="Region" filterBy="#{item.region}" sortBy="#{item.region}"
                                   filterMatchMode="contains">
-                            #{item.name}
+                            #{item.region}
                         </p:column>
 
-                        <p:column headerText="Latitude" filterBy="#{item.latitude}" sortBy="#{item.latitude}"
-                                  filterMatchMode="contains">
-                            #{item.latitude}
-                        </p:column>
-
-                        <p:column headerText="Longitude" filterBy="#{item.longitude}" sortBy="#{item.longitude}"
-                                  filterMatchMode="contains">
-                            #{item.longitude}
-                        </p:column>
+                         
 
                         <p:column headerText="Lat" filterBy="#{item.lat}" sortBy="#{item.lat}"
                                   filterMatchMode="contains">

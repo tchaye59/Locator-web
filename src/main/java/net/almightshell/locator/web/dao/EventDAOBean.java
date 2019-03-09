@@ -5,8 +5,12 @@
  */
 package net.almightshell.locator.web.dao;
 
+import java.util.List;
+import java.util.Map;
 import javax.ejb.Stateless;
 import net.almightshell.locator.web.api.Event;
+import org.primefaces.model.SortMeta;
+import org.primefaces.model.SortOrder;
 
 /**
  *

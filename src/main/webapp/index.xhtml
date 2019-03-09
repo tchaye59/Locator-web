@@ -23,7 +23,7 @@
 
                     <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAwGLH9vidxKCAwEiHY3FslnGJaj0QmHeA" ></script>
 
-                    <p:gmap id="geoMapV" widgetVar="geoMapV"  center="#{addMarkersBean.lat==0 ? 41.381542 :  addMarkersBean.lat}, #{addMarkersBean.lon==0 ? 2.122893 : addMarkersBean.lon}" zoom="15" type="ROADMAP" style="width:100%;height:400px"  model="#{addMarkersBean.emptyModel}" >
+                    <p:gmap id="geoMapV" widgetVar="geoMapV"  center="#{addMarkersBean.lat==0 ? 41.381542 :  addMarkersBean.lat}, #{addMarkersBean.lon==0 ? 2.122893 : addMarkersBean.lon}" zoom="5" type="ROADMAP" style="width:100%;height:400px"  model="#{addMarkersBean.emptyModel}" >
 
                         <p:ajax event="overlaySelect"  process="@this" listener="#{addMarkersBean.onMarkerSelect}"  update="infoWindowGrid" />
 

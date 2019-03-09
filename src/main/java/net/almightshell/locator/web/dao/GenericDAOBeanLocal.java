@@ -7,6 +7,10 @@ package net.almightshell.locator.web.dao;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+import net.almightshell.locator.web.api.Event;
+import org.primefaces.model.SortMeta;
+import org.primefaces.model.SortOrder;
 
 /**
  *
@@ -33,7 +37,19 @@ public interface GenericDAOBeanLocal<E extends Serializable, ID> {
 
     E getOne(ID id);
 
+    E getOne(String field, String value);
+
+    E getOne(String field, int value);
+
     List<E> getAll();
+
+    List<E> getAll(String field, String value);
+
+    List<E> getAll(String field, int value);
+
+    public List<E> getAll(int first, int pageSize, Map<String, String> multiSortMeta, Map<String, Object> filters);
+
+    public List<E> getAll(int first, int pageSize, String sortField, String sortOrder, Map<String, Object> filters);
 
     Long count();
 

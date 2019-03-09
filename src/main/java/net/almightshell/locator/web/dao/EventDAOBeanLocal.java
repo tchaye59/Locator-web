@@ -5,8 +5,12 @@
  */
 package net.almightshell.locator.web.dao;
 
+import java.util.List;
+import java.util.Map;
 import javax.ejb.Local;
 import net.almightshell.locator.web.api.Event;
+import org.primefaces.model.SortMeta;
+import org.primefaces.model.SortOrder;
 
 /**
  *
@@ -14,5 +18,6 @@ import net.almightshell.locator.web.api.Event;
  */
 @Local
 public interface EventDAOBeanLocal extends GenericDAOBeanLocal<Event, Integer> {
+
 
 }

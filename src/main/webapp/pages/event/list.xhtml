@@ -54,13 +54,13 @@
                     </p:splitButton>
 
                     <p:separator/>
-                    
-                    <p:dataTable widgetVar="list" var="item" value="#{eventBean.all}" rows="50"
+
+                    <p:dataTable widgetVar="list" var="item" value="#{eventBean.lazyModel}" rows="50"
                                  rowKey="#{item.id}" lazy="true" paginator="true"
                                  paginatorPosition="bottom" selection="#{eventBean.selecteds}"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {JumpToPageDropdown}"
                                  currentPageReportTemplate="[ {startRecord} to {endRecord} of {totalRecords} ]"
-                                 rowsPerPageTemplate="5,10,15,20,30"
+                                 rowsPerPageTemplate="5,10,20,30,50"
                                  >
 
                         <p:ajax event="rowSelectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
@@ -70,29 +70,24 @@
 
                         <p:column selectionMode="multiple" width="5%" styleClass="align-center"/>
 
-                        <p:column headerText="Event ID" filterBy="#{item.eventId}" sortBy="#{item.eventId}"
+                        <p:column headerText="Substation" filterBy="#{item.substation}" sortBy="#{item.substation}"
                                   filterMatchMode="contains">
-                            #{item.eventId}
+                            #{item.substation}(#{item.region})
                         </p:column>
-                        
-                        
 
                         <p:column headerText="Device" filterBy="#{item.device}" sortBy="#{item.device}"
                                   filterMatchMode="contains">
                             #{item.device}
                         </p:column>
-
-                        <p:column headerText="Substation" filterBy="#{item.substation}" sortBy="#{item.substation}"
+                        
+                        <p:column headerText="Priority" filterBy="#{item.priorityCode}" sortBy="#{item.priorityCode}"
                                   filterMatchMode="contains">
-                            #{item.substation}
+                            #{item.priorityCode}
                         </p:column>
 
-                        <p:column headerText="SCADA Category" filterBy="#{item.scadaCategory}" sortBy="#{item.scadaCategory}"
-                                  filterMatchMode="contains">
-                            #{item.scadaCategory}
-                        </p:column>
 
-                        <p:column headerText="Event Time" filterBy="#{item.eventTime}" sortBy="#{item.eventTime}"
+
+                        <p:column headerText="Event Time" sortBy="#{item.eventTime}"
                                   filterMatchMode="contains">
 
                             <h:outputText value="#{item.eventTime}">
@@ -101,7 +96,7 @@
 
                         </p:column>
 
-                        <p:column headerText="Event Message" filterBy="#{item.event_message}" sortBy="#{item.event_message}"
+                        <p:column width="30%" headerText="Event Message"
                                   filterMatchMode="contains">
                             #{item.event_message}
                         </p:column>
@@ -110,7 +105,7 @@
                             <p:button title="Edit" outcome="edit"   icon="fa fa-edit" >
                                 <f:param name="id" value="#{item.id}"/>
                             </p:button>
-                            
+
                             <p:button title="View" outcome="view"   icon="fa fa-list" >
                                 <f:param name="id" value="#{item.id}"/>
                             </p:button>
@@ -118,8 +113,8 @@
 
 
                     </p:dataTable>
-                
-                
+
+
                 </div>
             </div>
             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">

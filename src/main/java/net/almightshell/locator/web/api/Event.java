@@ -32,15 +32,6 @@ public class Event implements Serializable {
     @Column(name = "region")
     String region;
 
-    @Column(name = "name")
-    String name;
-
-    @Column(name = "latitude")
-    String latitude;
-
-    @Column(name = "longitude")
-    String longitude;
-
     @Column(name = "lat")
     double lat;
 
@@ -69,12 +60,6 @@ public class Event implements Serializable {
     @Column(name = "event_message")
     String event_message;
 
-    @Column(name = "tms")
-    String tms;
-
-    @Column(name = "aor")
-    String aor;
-
     public Event() {
     }
 
@@ -92,30 +77,6 @@ public class Event implements Serializable {
 
     public void setRegion(String region) {
         this.region = region;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
     }
 
     public double getLat() {
@@ -190,22 +151,6 @@ public class Event implements Serializable {
         this.event_message = event_message;
     }
 
-    public String getTms() {
-        return tms;
-    }
-
-    public void setTms(String tms) {
-        this.tms = tms;
-    }
-
-    public String getAor() {
-        return aor;
-    }
-
-    public void setAor(String aor) {
-        this.aor = aor;
-    }
-
     public String getEventId() {
         return eventId;
     }
@@ -241,7 +186,7 @@ public class Event implements Serializable {
 
     @Override
     public String toString() {
-        return "Event{" + "id=" + id + ", region=" + region + ", name=" + name + ", latitude=" + latitude + ", longitude=" + longitude + ", lat=" + lat + ", lon=" + lon + ", eventTime=" + eventTime + ", scadaCategory=" + scadaCategory + ", priorityCode=" + priorityCode + ", substation=" + substation + ", deviceType=" + deviceType + ", device=" + device + ", event_message=" + event_message + '}';
+        return "Event{" + "id=" + id + ", eventId=" + eventId + ", region=" + region + ", lat=" + lat + ", lon=" + lon + ", eventTime=" + eventTime + ", scadaCategory=" + scadaCategory + ", priorityCode=" + priorityCode + ", substation=" + substation + ", deviceType=" + deviceType + ", device=" + device + ", event_message=" + event_message + '}';
     }
 
 }

@@ -24,17 +24,14 @@ public class PowerCenter implements Serializable {
     @Column(name = "id")
     int id;
 
+    @Column(name = "pcId")
+    int pcId;
+
     @Column(name = "region")
     String region;
 
     @Column(name = "name")
     String name;
-
-    @Column(name = "latitude")
-    String latitude;
-
-    @Column(name = "longitude")
-    String longitude;
 
     @Column(name = "lat")
     double lat;
@@ -69,22 +66,6 @@ public class PowerCenter implements Serializable {
         this.name = name;
     }
 
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
     public double getLat() {
         return lat;
     }
@@ -99,6 +80,14 @@ public class PowerCenter implements Serializable {
 
     public void setLon(double lon) {
         this.lon = lon;
+    }
+
+    public int getPcId() {
+        return pcId;
+    }
+
+    public void setPcId(int pcId) {
+        this.pcId = pcId;
     }
 
     @Override
@@ -128,7 +117,7 @@ public class PowerCenter implements Serializable {
 
     @Override
     public String toString() {
-        return "PowerCenter{" + "id=" + id + ", region=" + region + ", name=" + name + ", latitude=" + latitude + ", longitude=" + longitude + '}';
+        return "PowerCenter{" + "id=" + id + ", region=" + region + ", name=" + name + ", lat=" + lat + ", lon=" + lon + '}';
     }
 
 }
