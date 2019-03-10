@@ -117,7 +117,13 @@ public abstract class GenericDAOBean<E extends Serializable, ID> implements Gene
 
         if (filters != null) {
             for (Map.Entry<String, Object> v : filters.entrySet()) {
-                jpql += " AND UPPER(e." + v.getKey() + ") LIKE UPPER(:" + v.getKey() + ") ";
+                try {
+                    int x = Integer.valueOf(v.getValue()+"");
+                    jpql += " AND e." + v.getKey() + " = :" + v.getKey() + " ";
+                } catch (Exception e) {
+                     jpql += " AND UPPER(e." + v.getKey() + ") LIKE UPPER(:" + v.getKey() + ") ";
+                }
+                
             }
         }
 
@@ -149,7 +155,13 @@ public abstract class GenericDAOBean<E extends Serializable, ID> implements Gene
 
         if (filters != null) {
             for (Map.Entry<String, Object> v : filters.entrySet()) {
-                query.setParameter(v.getKey(), "%" + v.getValue() + "%");
+                 try {
+                    int x = Integer.valueOf(v.getValue()+"");
+                    query.setParameter(v.getKey(), x);
+                } catch (Exception e) {
+                    query.setParameter(v.getKey(), "%" + v.getValue() + "%");
+                }
+                
             }
         }
 
